@@ -18,10 +18,22 @@ menu.startState({
     }
 });
 
+const getState = async()=>{
+    var result = await State.find();
+    var message = "Select State: "
+    result.forEach((doc)=>{
+        message += `\n1. ${doc.name}`;
+    })
+
+    return message;
+};
+
 menu.state('nutrision', {
     run: () => {
-        var mess = 'Select state:'
-        menu.con(mess);
+        getState()
+        .then((message)=>{
+            menu.con(message);
+        })   
     },
     next:{
 
