@@ -21,7 +21,6 @@ menu.startState({
 menu.state('nutrision', {
     run: () => {
         var mess = 'Select state:'
-        const result = await State.find();
         result.forEach((r)=>{
            
         }); 
