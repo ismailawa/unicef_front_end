@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
-const State = require('../ussd_app/models/state')
+
 
 
 /* GET home page. */
