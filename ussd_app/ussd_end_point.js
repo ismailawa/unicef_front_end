@@ -28,12 +28,11 @@ menu.state('nutrision', {
         State.find()
         .exec()
         .then((result)=>{
-            
             result.forEach((r)=>{
-                mess += `\n${r.name}`
-            });
-            
+                mess + `\n1. ${r.name}`
+            }); 
+            menu.con(mess);    
         });
-        menu.con(mess);
+        
     },
 })
