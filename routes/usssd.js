@@ -22,11 +22,11 @@ menu.state('nutrision', {
     run: async() => {
         var mess = 'Select state:'
         const result = await State.find();
-        result.forEach((r)=>{
-           
-        }); 
-        menu.con(mess);
+        await menu.con(mess);
     },
+    next:{
+
+    }
 })
 
 
