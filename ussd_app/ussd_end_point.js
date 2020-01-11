@@ -23,16 +23,12 @@ menu.startState({
 });
 
 menu.state('nutrision', {
-    run: () => {
+    run: async() => {
         var mess = 'Select state:'
-        State.find()
-        .exec()
-        .then((result)=>{
-            result.forEach((r)=>{
-                mess + `\n1. ${r.name}`
-            }); 
-            menu.con(mess);    
-        });
-        
+        const result = await State.find();
+        result.forEach((r)=>{
+           
+        }); 
+        menu.con(mess);
     },
 })
