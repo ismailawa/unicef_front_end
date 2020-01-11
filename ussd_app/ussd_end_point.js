@@ -1,5 +1,5 @@
 const UssdMenu = require('ussd-menu-builder');
-var menu = new UssdMenu();
+let menu = new UssdMenu();
 
 exports.resgisterQuestionaire = (req,res,next)=>{
     menu.run(req.body, ussdResult => {
@@ -14,5 +14,18 @@ menu.startState({
         '\n1. trying' +
         '\n2. catching');
     },
-    defaultNext : "getstate"
-})
+    next: {
+        '1': 'showBalance',
+        '2': 'buyAirtime'
+    }
+});
+
+menu.state('showBalance', {
+    run: () => {
+        // fetch balance
+        fetchBalance(menu.args.phoneNumber).then(function(bal){
+            // use menu.end() to send response and terminate session
+            menu.end('Your balance is KES ' + bal);
+        });
+    }
+});
