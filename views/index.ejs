@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Unicef Application</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <% state.forEach((st)=>{%>
+    <h1><%= st.name %></h1>
+  <%})%>
+    <p>Welcome to </p>
   </body>
 </html>

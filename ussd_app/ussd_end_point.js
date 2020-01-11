@@ -1,4 +1,5 @@
 const UssdMenu = require('ussd-menu-builder');
+const State = require('../ussd_app/models/state');
 let menu = new UssdMenu();
 
 exports.resgisterQuestionaire = (req,res,next)=>{
@@ -16,17 +17,24 @@ menu.startState({
         '\n2. Facility');
     },
     next: {
-        '1': 'Nutrision',
-        '2': 'buyAirtime'
+        '1': 'nutrision',
+        '2': 'facility'
     }
 });
 
-menu.state('showBalance', {
+menu.state('nutrision', {
     run: () => {
-        // fetch balance
-        fetchBalance(menu.args.phoneNumber).then(function(bal){
-            // use menu.end() to send response and terminate session
-            menu.end('Your balance is KES ' + bal);
+        const respones = "Select state: "
+        State.find()
+        .exec()
+        .then((states)=>{
+           states.forEach((state)=>{
+            respones+= "\n"+state.name;
+           });
+           menu.con(respones);
         });
+    },
+    next:{
+        '1': "working"
     }
 })
