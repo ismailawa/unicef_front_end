@@ -19,10 +19,9 @@ menu.startState({
 });
 
 menu.state('nutrision', {
-    run: async() => {
+    run: () => {
         var mess = 'Select state:'
-        const result = await State.find();
-        await menu.con(mess);
+        menu.con(mess);
     },
     next:{
 
