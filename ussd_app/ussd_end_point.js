@@ -30,7 +30,7 @@ menu.state('nutrision', {
         .then((states)=>{
             var respones = "Select state: ";
            states.forEach((state)=>{
-            respones+= "\n"+state.name;
+                respones+= `\n${state.name}`;
            });
            menu.con(respones);
         });
