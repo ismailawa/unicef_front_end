@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 const UssdMenu = require('ussd-menu-builder');
 const State = require('../ussd_app/models/state');
 let menu = new UssdMenu();
@@ -19,20 +20,19 @@ menu.startState({
 });
 
 menu.state('nutrision', {
-    run: () => {
+    run: async() => {
         var mess = 'Select state:'
+        const result = await State.find();
         result.forEach((r)=>{
            
         }); 
         menu.con(mess);
     },
-    next:{}
 })
 
 
 router.post('/',(req,res,next)=>{
-
-    menu.run(req.body, ussdResult => {
+        menu.run(req.body, ussdResult => {
         res.send(ussdResult);
     });
 });
