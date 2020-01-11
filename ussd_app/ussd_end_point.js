@@ -11,11 +11,12 @@ exports.resgisterQuestionaire = (req,res,next)=>{
 menu.startState({
     run: ()=> {
         menu.con('Welcome. Choose option:' +
-        '\n1. trying' +
-        '\n2. catching');
+        '\nSelection type' +
+        '\n1. Nutrision' +
+        '\n2. Facility');
     },
     next: {
-        '1': 'showBalance',
+        '1': 'Nutrision',
         '2': 'buyAirtime'
     }
 });
@@ -28,4 +29,4 @@ menu.state('showBalance', {
             menu.end('Your balance is KES ' + bal);
         });
     }
-});
+})
