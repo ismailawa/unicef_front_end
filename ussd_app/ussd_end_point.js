@@ -24,15 +24,16 @@ menu.startState({
 
 menu.state('nutrision', {
     run: () => {
-        const respones = "Select state: "
-        State.find()
-        .exec()
-        .then((states)=>{
-           states.forEach((state)=>{
-            respones+= "\n"+state.name;
-           });
-           menu.con(respones);
-        });
+        // const respones = "Select state: "
+        // State.find()
+        // .exec()
+        // .then((states)=>{
+        //    states.forEach((state)=>{
+        //     respones+= "\n"+state.name;
+        //    });
+        //    menu.con(respones);
+        // });
+        menu.con("something");
     },
     next:{
         '1': "working"
