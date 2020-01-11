@@ -24,16 +24,16 @@ menu.startState({
 
 menu.state('nutrision', {
     run: () => {
-        // const respones = "Select state: "
-        // State.find()
-        // .exec()
-        // .then((states)=>{
-        //    states.forEach((state)=>{
-        //     respones+= "\n"+state.name;
-        //    });
-        //    menu.con(respones);
-        // });
-        menu.con("something");
+        
+        State.find()
+        .exec()
+        .then((states)=>{
+            var respones = "Select state: ";
+           states.forEach((state)=>{
+            respones+= "\n"+state.name;
+           });
+           menu.con(respones);
+        });
     },
     next:{
         '1': "working"
