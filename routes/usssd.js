@@ -37,8 +37,8 @@ menu.state('findFacilicies',{
     run: async()=>{
         var mess = 'Select LGA:'
        const selected =  parseInt(menu.val);
-       const result = await State.find();
-       const stateId = result[selected-1]._id;
+       const state = await State.find();
+       const stateId = state[selected-1]._id;
        const result = await LGA.find({_id:stateId});
 
        result.forEach((r, index)=>{
