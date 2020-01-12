@@ -26,7 +26,7 @@ menu.state('nutrision', {
         result.forEach((r)=>{
            
         }); 
-        menu.con(mess);
+        menu.con(result);
     },
 })
 
@@ -36,4 +36,5 @@ router.post('/',(req,res,next)=>{
         res.send(ussdResult);
     });
 });
+
 module.exports = router;
