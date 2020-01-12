@@ -59,25 +59,25 @@ menu.state('findlgas',{
 
 menu.state('findfacility',{
     run: async()=>{
-    //     var mess = 'Select facility:'
-    //    const selected =  parseInt(menu.val);
-    //    const lga = await LGA.find();
-    //    const lgaId = state[selected-1]._id;
-    //    Facility.find()
-    //    .exec()
-    //    .then((result)=>{
-    //     if(result.length == 0){
-    //         menu.end("No Facility  Found..")
-    //     }else{
-    //      result.forEach((r, index)=>{
-    //          mess += `\n${index+1}. ${r.name}`
-    //      });
-    //      menu.con(mess)
-    //     }
-    //    }).catch((error)=>{
-    //        menu.end(error);
-    //    });
-        menu.end("working");
+        var mess = 'Select facility:'
+       const selected =  parseInt(menu.val);
+       const lga = await LGA.find();
+       const lgaId = state[selected-1]._id;
+       Facility.find()
+       .exec()
+       .then((result)=>{
+        if(result.length == 0){
+            menu.end("No Facility  Found..")
+        }else{
+         result.forEach((r, index)=>{
+             mess += `\n${index+1}. ${r.name}`
+         });
+         menu.con(mess)
+        }
+       }).catch((error)=>{
+           menu.end(error);
+       });
+        
     },
     defaultNext: 'chooseQuestionaire'
 });
