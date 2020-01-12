@@ -44,7 +44,7 @@ menu.state('findFacilicies',{
        result.forEach((r, index)=>{
             mess += `\n${index+1}. ${r.name}`
         });
-       menu.con(stateId)
+       menu.con(result)
     }
 });
 
