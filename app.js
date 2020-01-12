@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var ussdRouter = require('./routes/usssd');
 
-const uri = "mongodb+srv://unicef_user:unicef123456@cluster0-jemfs.mongodb.net/unicefdatabase?retryWrites=true&w=majority";
+const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true&w=majority";
 
 mongoose.connect(uri, {useNewUrlParser: true });
 
