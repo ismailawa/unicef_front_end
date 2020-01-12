@@ -40,7 +40,6 @@ menu.state('findFacilicies',{
        const state = await State.find();
        const stateId = state[selected-1]._id;
        LGA.find()
-       .where({state:stateId})
        .exec()
        .then((result)=>{
         if(result.length == 0){
