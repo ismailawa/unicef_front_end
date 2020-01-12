@@ -28,9 +28,14 @@ menu.state('nutrision', {
         }); 
         menu.con(mess);
     },
+    defaultNext: 'findFacilicies'
 })
 
-
+menu.state('findFacilicies',{
+    run: async()=>{
+        menu.end("facilities")
+    }
+});
 router.post('/',(req,res,next)=>{
     menu.run(req.body, ussdResult => {
         res.send(ussdResult);
