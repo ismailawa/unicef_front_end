@@ -39,7 +39,7 @@ menu.state('findFacilicies',{
        const selected =  parseInt(menu.val);
        const state = await State.find();
        const stateId = state[selected-1]._id;
-       const result = await LGA.find({_id:stateId});
+       const result = await LGA.find({state:stateId});
 
        result.forEach((r, index)=>{
             mess += `\n${index+1}. ${r.name}`
