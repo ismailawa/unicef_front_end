@@ -24,9 +24,9 @@ menu.state('nutrision', {
         var mess = 'Select state:'
         const result = await State.find();
         result.forEach((r)=>{
-           
+           mess += `\n1. ${r.name}`
         }); 
-        menu.con(result);
+        menu.con(mess);
     },
 })
 
