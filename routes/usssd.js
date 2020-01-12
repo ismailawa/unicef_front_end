@@ -30,10 +30,10 @@ menu.state('nutrision', {
         }); 
         menu.con(mess);
     },
-    defaultNext: 'findFacilicies'
+    defaultNext: 'findlgas'
 })
 
-menu.state('findFacilicies',{
+menu.state('findlgas',{
     run: async()=>{
         var mess = 'Select LGA:'
        const selected =  parseInt(menu.val);
@@ -53,7 +53,54 @@ menu.state('findFacilicies',{
        }).catch((error)=>{
            menu.end(error);
        });
-    }   
+    },
+    defaultNext: 'findfacility'
+});
+
+menu.state('findfacility',{
+    run: async()=>{
+        var mess = 'Select LGA:'
+       const selected =  parseInt(menu.val);
+       const lga = await LGA.find();
+       const lgaId = state[selected-1]._id;
+       Facility.find()
+       .exec()
+       .then((result)=>{
+        if(result.length == 0){
+            menu.end("No Facility  Found..")
+        }else{
+         result.forEach((r, index)=>{
+             mess += `\n${index+1}. ${r.name}`
+         });
+         menu.con(mess)
+        }
+       }).catch((error)=>{
+           menu.end(error);
+       });
+    },
+    defaultNext: 'chooseQuestionaire'
+});
+
+menu.state('chooseQuestionaire',{
+    run: ()=> {
+        menu.con('Please Choose option:' +
+        '\nQuestionaire type' +
+        '\n1. Facility Identification Questionnaire' +
+        '\n2. Interview the facility staff person in charge of prescribing RUTF dosage to patients'+
+        '\n3. Stock Status Questionnaire'+
+        '\n4. Storage Conditions Questionnaire'+
+        '\n5. Household Questionnaire'+
+        '\n6. Caregiver interview'
+        );
+    },
+    next:{
+        '1': "Facility Identification Questionnaire",
+        '2': "Interview the facility staff person in charge of prescribing RUTF dosage to patients",
+        '3': "Stock Status Questionnaire",
+        '4': "Storage Conditions Questionnaire",
+        '5':"Household Questionnaire",
+        '6': "Caregiver interview "
+    }
 });
 
 router.post('/',(req,res,next)=>{
