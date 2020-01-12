@@ -31,5 +31,9 @@ menu.state('nutrision', {
 })
 
 
-
+router.post('/',(req,res,next)=>{
+    menu.run(req.body, ussdResult => {
+        res.send(ussdResult);
+    });
+});
 module.exports = router;
