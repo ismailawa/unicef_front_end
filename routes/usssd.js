@@ -23,8 +23,8 @@ menu.state('nutrision', {
     run: async() => {
         var mess = 'Select state:'
         const result = await State.find();
-        result.forEach((r)=>{
-           mess += `\n1. ${r.name}`
+        result.forEach((r, index)=>{
+           mess += `\n${index+1}. ${r.name}`
         }); 
         menu.con(mess);
     },
