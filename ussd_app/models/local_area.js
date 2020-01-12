@@ -8,4 +8,4 @@ const LocalAreaSchema = mongoose.Schema({
 });
 
 
-module.exports = mongoose.model("LGA", LocalAreaSchema);
+module.exports = mongoose.model("Lga", LocalAreaSchema);

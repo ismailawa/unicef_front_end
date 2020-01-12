@@ -4,6 +4,8 @@ var router = express.Router();
 
 const UssdMenu = require('ussd-menu-builder');
 const State = require('../ussd_app/models/state');
+const Facility = require('../ussd_app/models/facility');
+const LGA = require('../ussd_app/models/local_area');
 let menu = new UssdMenu();
 
 menu.startState({
@@ -33,9 +35,19 @@ menu.state('nutrision', {
 
 menu.state('findFacilicies',{
     run: async()=>{
-        menu.end("facilities")
+        var mess = 'Select LGA:'
+       const selected =  parseInt(menu.val);
+       const result = await State.find();
+       const stateId = result[selected-1]._id;
+       const result = await LGA.find({_id:stateId});
+
+       result.forEach((r, index)=>{
+            mess += `\n${index+1}. ${r.name}`
+        });
+       menu.con(mess)
     }
 });
+
 router.post('/',(req,res,next)=>{
     menu.run(req.body, ussdResult => {
         res.send(ussdResult);
