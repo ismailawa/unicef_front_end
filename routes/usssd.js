@@ -59,10 +59,10 @@ menu.state('findlgas',{
 
 menu.state('findfacility',{
     run: async()=>{
-        var mess = 'Select facility:'
+       var mess = 'Select facility:'
        const selected =  parseInt(menu.val);
        const lga = await LGA.find();
-       const lgaId = state[selected-1]._id;
+       const lgaId = lga[selected-1]._id;
        Facility.find()
        .exec()
        .then((result)=>{
