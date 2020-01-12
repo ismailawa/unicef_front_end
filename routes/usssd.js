@@ -54,29 +54,30 @@ menu.state('findlgas',{
            menu.end(error);
        });
     },
-    defaultNext: 'findfacility'
+    defaultNext: 'findfacility',
 });
 
 menu.state('findfacility',{
     run: async()=>{
-        var mess = 'Select LGA:'
-       const selected =  parseInt(menu.val);
-       const lga = await LGA.find();
-       const lgaId = state[selected-1]._id;
-       Facility.find()
-       .exec()
-       .then((result)=>{
-        if(result.length == 0){
-            menu.end("No Facility  Found..")
-        }else{
-         result.forEach((r, index)=>{
-             mess += `\n${index+1}. ${r.name}`
-         });
-         menu.con(mess)
-        }
-       }).catch((error)=>{
-           menu.end(error);
-       });
+    //     var mess = 'Select facility:'
+    //    const selected =  parseInt(menu.val);
+    //    const lga = await LGA.find();
+    //    const lgaId = state[selected-1]._id;
+    //    Facility.find()
+    //    .exec()
+    //    .then((result)=>{
+    //     if(result.length == 0){
+    //         menu.end("No Facility  Found..")
+    //     }else{
+    //      result.forEach((r, index)=>{
+    //          mess += `\n${index+1}. ${r.name}`
+    //      });
+    //      menu.con(mess)
+    //     }
+    //    }).catch((error)=>{
+    //        menu.end(error);
+    //    });
+        menu.end("working");
     },
     defaultNext: 'chooseQuestionaire'
 });
