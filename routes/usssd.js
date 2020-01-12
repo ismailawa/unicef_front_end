@@ -39,13 +39,22 @@ menu.state('findFacilicies',{
        const selected =  parseInt(menu.val);
        const state = await State.find();
        const stateId = state[selected-1]._id;
-       const result = await LGA.find({state:stateId});
-        console.log(result);
-       result.forEach((r, index)=>{
-            mess += `\n${index+1}. ${r.name}`
-        });
-       menu.con(result)
-    }
+       LGA.find()
+       .where({state:stateId})
+       .exec()
+       .then((result)=>{
+        if(result.length == 0){
+            menu.end("No Local Government Found..")
+        }else{
+         result.forEach((r, index)=>{
+             mess += `\n${index+1}. ${r.name}`
+         });
+         menu.con(mess)
+        }
+       }).catch((error)=>{
+           menu.end(error);
+       });
+    }   
 });
 
 router.post('/',(req,res,next)=>{
