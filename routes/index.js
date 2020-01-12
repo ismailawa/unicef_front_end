@@ -6,12 +6,14 @@ const State = require('../ussd_app/models/state')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    State.find()
-    .exec()
-    .then((state)=>{
-        res.render('index', {state});
-    });
- 
+    // State.find()
+    // .exec()
+    // .then((doc)=>{
+        
+    // });
+
+    res.render('index');
+    
 });
 
 module.exports = router;
