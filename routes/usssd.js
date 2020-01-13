@@ -137,7 +137,7 @@ menu.state('hfr',{
     defaultNext: 'hhr'
 });
 
-menu.state('hfr',{
+menu.state('hhr',{
     run: ()=> {
         menu.con('Please Enter:\n Name(s) and Title of HouseHold respondent(s)')
     },
@@ -165,11 +165,57 @@ menu.state('exit',{
 //#################################################################################
 menu.state('IFS',{
     run: ()=> {
+        menu.con('Please Choose option:' +
+        '\nDo you have the treatment protocol book/guidelines/job aid? Can you show it to me?:' +
+        '\n1.  Yes, shown' +
+        '\n2. Yes,  not  seen'+
+        '\n3.  No'
+        )
     },
-    next:{
-    }
+    defaultNext:'dosageguidelines'
 });
 
+menu.state('dosageguidelines',{
+    run: ()=> {
+        menu.con('Can you describe the national dosage guidelines for me? How much should you FS02 prescribe for [band 1], [band 2], [band 3]? :' +
+        '\nEnter the respective answers seperated by comma' 
+        )
+    },
+    defaultNext:'exchanging'
+});
+
+menu.state('exchanging',{
+    run: ()=> {
+        menu.con('Please Choose option:' +
+        '\nHave you seen or heard of anyone selling or exchanging RUTF at home or in the FS03  local market?'+
+        '\n1. Yes'+
+        '\n2. No')
+    },
+    defaultNext:'distribution'
+});
+
+menu.state('distribution',{
+    run: ()=> {
+        menu.con('Please Choose option:' +
+        '\nWhat is the frequency of scheduled distributions at this health center?'+
+        '\n1. Weekly'+
+        '\n2. Bi-weekly'+
+        '\n3.Other')
+    },
+    next:{
+        '3': "dist-others"
+    },
+    defaultNext:'patients'
+});
+
+menu.state('dist-others',{
+    run: ()=> {
+        menu.con('Enter distribution frequency:')
+    },
+    defaultNext:'patients'
+});
+
+//#################################################################################
 menu.state('SSQ',{
     run: ()=> {
     },
