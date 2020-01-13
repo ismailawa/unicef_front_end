@@ -95,12 +95,106 @@ menu.state('chooseQuestionaire',{
         );
     },
     next:{
-        '1': "Facility Identification Questionnaire",
-        '2': "Interview the facility staff person in charge of prescribing RUTF dosage to patients",
-        '3': "Stock Status Questionnaire",
-        '4': "Storage Conditions Questionnaire",
-        '5':"Household Questionnaire",
-        '6': "Caregiver interview "
+        '1': "FIQ",
+        '2': "IFS",
+        '3': "SSQ",
+        '4': "SCQ",
+        '5':"HQ",
+        '6': "CI"
+    }
+});
+
+//create menu for Facility Identification Questionnaire
+menu.state('FIQ',{
+    run: ()=> {
+        menu.con('Please Choose option:' +
+        '\nFacility type' +
+        '\n1. Hospital' +
+        '\n2. Health Center'+
+        '\n3. Therapeutic Feeding Center'
+        )
+    },
+    defaultNext: 'facops'
+});
+
+menu.state('facops',{
+    run: ()=> {
+        menu.con('Please Choose option:' +
+        '\nFacility operated by:' +
+        '\n1. Government' +
+        '\n2. NGO'+
+        '\n3. Private'+
+        '\n4. Faith-base organisation'
+        )
+    },
+    defaultNext: 'hfr'
+});
+
+menu.state('hfr',{
+    run: ()=> {
+        menu.con('Please Enter:\n Name(s) and Title of Health Facility respondent(s)' )
+    },
+    defaultNext: 'hhr'
+});
+
+menu.state('hfr',{
+    run: ()=> {
+        menu.con('Please Enter:\n Name(s) and Title of HouseHold respondent(s)')
+    },
+    defaultNext: 'finish'
+});
+
+menu.state('finish',{
+    run: ()=> {
+        menu.con('Your entries have been successfully submited'+
+        '\n1. Back to main menu'+
+        '\n2. exit')
+    },
+    next:{
+        '1': 'chooseQuestionaire',
+        '2':'exit'
+    } 
+});
+
+menu.state('exit',{
+    run: ()=> {
+        menu.end("Have a nice day");
+    },
+});
+
+//#################################################################################
+menu.state('IFS',{
+    run: ()=> {
+    },
+    next:{
+    }
+});
+
+menu.state('SSQ',{
+    run: ()=> {
+    },
+    next:{
+    }
+});
+
+menu.state('SCQ',{
+    run: ()=> {
+    },
+    next:{
+    }
+});
+
+menu.state('HQ',{
+    run: ()=> {
+    },
+    next:{
+    }
+});
+
+menu.state('CI',{
+    run: ()=> {
+    },
+    next:{
     }
 });
 
