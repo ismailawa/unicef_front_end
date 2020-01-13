@@ -974,11 +974,11 @@ input:-webkit-autofill:focus {
 }
 
 .top-area .area-bg {
-    background: rgba(0, 0, 0, 0) url("img/promo/promo-bg.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/promo/promo-bg.jpg") no-repeat scroll center center / cover;
 }
 
 .top-area .area-bg::after {
-    background: rgba(0, 0, 0, 0) url("img/home/home-wave.svg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/home/home-wave.svg") no-repeat scroll center center / cover;
     bottom: -59px;
     height: 166px;
     top: auto;
@@ -1230,15 +1230,15 @@ ul#nav li ul a,
 }
 
 .slide-bg-one {
-    background: rgba(0, 0, 0, 0) url("img/slider/slide-1.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/slider/slide-1.jpg") no-repeat scroll center center / cover;
 }
 
 .slide-bg-two {
-    background: rgba(0, 0, 0, 0) url("img/slider/slide_1.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/slider/slide_1.jpg") no-repeat scroll center center / cover;
 }
 
 .slide-bg-three {
-    background: rgba(0, 0, 0, 0) url("img/slider/slide_2.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/slider/slide_2.jpg") no-repeat scroll center center / cover;
 }
 
 .owl-item.active .welcome-single-slide .welcome-text h4 {
@@ -1428,7 +1428,7 @@ ul#nav li ul a,
 }
 
 .app-area-mockup-bg {
-    background: rgba(0, 0, 0, 0) url("img/mockups/app-area-mockup.png") no-repeat scroll center bottom / contain;
+    background: rgba(0, 0, 0, 0) url("../img/mockups/app-area-mockup.png") no-repeat scroll center bottom / contain;
     bottom: 0;
     height: 80%;
     position: absolute;
@@ -1462,7 +1462,7 @@ ul#nav li ul a,
 }
 
 .video-area .area-bg {
-    background: rgba(0, 0, 0, 0) url("img/video/video-area-bg.jpg") no-repeat scroll center top / cover;
+    background: rgba(0, 0, 0, 0) url("../img/video/video-area-bg.jpg") no-repeat scroll center top / cover;
 }
 
 .video-area .area-bg::after {
@@ -1615,11 +1615,11 @@ ul#nav li ul a,
 }*/
 
 .screenshot-slider {
-    background: rgba(0, 0, 0, 0) url("img/screenshot/screenshot-mobile-mockup.png") no-repeat scroll center center / auto 100%;
+    background: rgba(0, 0, 0, 0) url("../img/screenshot/screenshot-mobile-mockup.png") no-repeat scroll center center / auto 100%;
 }
 
 .screenshot-slider-2 {
-    background: rgba(0, 0, 0, 0) url("img/screenshot/screenshot-mobile-mockup.png") no-repeat scroll right center / auto 100%;
+    background: rgba(0, 0, 0, 0) url("../img/screenshot/screenshot-mobile-mockup.png") no-repeat scroll right center / auto 100%;
 }
 
 .screenshot-area .single-screenshot {
@@ -1641,7 +1641,7 @@ ul#nav li ul a,
 ---------------------------------*/
 
 .download-area .area-bg::after {
-    background: rgba(0, 0, 0, 0) url("img/mockups/hand-mockup.png") no-repeat scroll center 106% / auto 80%;
+    background: rgba(0, 0, 0, 0) url("../img/mockups/hand-mockup.png") no-repeat scroll center 106% / auto 80%;
 }
 
 .download-area.section-padding {
@@ -1947,7 +1947,7 @@ ul#nav li ul a,
 }
 
 .contact-area .area-bg::after {
-    background: rgba(0, 0, 0, 0) url("img/mockups/map-mockup.png") no-repeat scroll left 4% center / auto 39%;
+    background: rgba(0, 0, 0, 0) url("../img/mockups/map-mockup.png") no-repeat scroll left 4% center / auto 39%;
 }
 
 .contact-area h2 {
@@ -2216,7 +2216,7 @@ label.mt10.valid {
 }
 
 .intro-area .area-bg::before {
-    background: rgba(0, 0, 0, 0) url("img/intro-bg.png") repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/intro-bg.png") repeat scroll center center / cover;
 }
 
 .home-three .welcome-mockup img {
@@ -2232,7 +2232,7 @@ label.mt10.valid {
 }
 
 .video-promo-slider {
-    background: rgba(0, 0, 0, 0) url("img/promo/promo-mockup.png") no-repeat scroll center center / auto 80%;
+    background: rgba(0, 0, 0, 0) url("../img/promo/promo-mockup.png") no-repeat scroll center center / auto 80%;
 }
 
 .single-video-promo-slide {
@@ -2263,7 +2263,7 @@ label.mt10.valid {
 -----------------------------*/
 
 .promo-area .area-bg {
-    background: rgba(0, 0, 0, 0) url("img/video/video-area-bg-2.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/video/video-area-bg-2.jpg") no-repeat scroll center center / cover;
 }
 
 .promo-area .area-bg::before {
@@ -2320,7 +2320,7 @@ label.mt10.valid {
 }
 
 .subscriber-area .area-bg {
-    background: rgba(0, 0, 0, 0) url("img/subscriber/subscriber-area-bg.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/subscriber/subscriber-area-bg.jpg") no-repeat scroll center center / cover;
 }
 
 .subscriber-area .subscriber-form {
@@ -2427,7 +2427,7 @@ label.mt10.valid {
 }
 
 .video-area.style-three .area-bg {
-    background: rgba(0, 0, 0, 0) url("img/video/video-bg-3.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/video/video-bg-3.jpg") no-repeat scroll center center / cover;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -2445,11 +2445,11 @@ label.mt10.valid {
 ----------------------------------*/
 
 .footer-area .area-bg::before {
-    background: rgba(0, 0, 0, 0) url("img/footer/footer-red-bg.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/footer/footer-red-bg.jpg") no-repeat scroll center center / cover;
 }
 
 .home-three .footer-area .area-bg::before {
-    background: rgba(0, 0, 0, 0) url("img/footer/footer-green-bg.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/footer/footer-green-bg.jpg") no-repeat scroll center center / cover;
 }
 
 /*---------------------------------
@@ -2526,7 +2526,7 @@ label.mt10.valid {
 --------------------------*/
 
 .team-three .member-thumb {
-    background: rgba(0, 0, 0, 0) url("img/team/member-bg.png") no-repeat scroll center center / auto 100%;
+    background: rgba(0, 0, 0, 0) url("../img/team/member-bg.png") no-repeat scroll center center / auto 100%;
     margin-bottom: 30px;
     padding-bottom: 30px;
 }
@@ -2827,7 +2827,7 @@ label.mt10.valid {
 }
 
 .page-barner-area .area-bg {
-    background: rgba(0, 0, 0, 0) url("img/blog/blog-page-bg.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/blog/blog-page-bg.jpg") no-repeat scroll center center / cover;
 }
 
 .single-page .page-barner-area .area-bg::before {
@@ -2884,7 +2884,7 @@ label.mt10.valid {
 }
 
 .single-widget h3::after {
-    background: rgba(0, 0, 0, 0) url("img/widgets-line.png") no-repeat scroll left bottom;
+    background: rgba(0, 0, 0, 0) url("../img/widgets-line.png") no-repeat scroll left bottom;
     bottom: 0;
     content: "";
     height: 10px;
