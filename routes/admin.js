@@ -26,6 +26,7 @@ router.get('/viewusers', function (req, res, next) {
 router.get('/createview',(req,res,next)=>{
      res.render('create')
 });
+
 router.post('/createUser',(req,res,next)=>{
      var body = req.body,
      fullname = body.fullname,

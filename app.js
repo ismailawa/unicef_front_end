@@ -13,8 +13,8 @@ var usersRouter = require('./routes/users');
 var ussdRouter = require('./routes/usssd');
 var adminRouter = require('./routes/admin');
 
-// const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true";
-// mongoose.connect(uri, {useNewUrlParser: true });
+const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true";
+mongoose.connect(uri, {useNewUrlParser: true });
 
 var app = express();
 
