@@ -8,13 +8,7 @@ const Facility = require('../ussd_app/models/facility');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-
-    State.find()
-    .exec()
-    .then((state)=>{
-        res.render('index', {state});
-    });
-    
+    res.render('index');
 });
 
 router.get('/dashboard', function (req, res, next) {

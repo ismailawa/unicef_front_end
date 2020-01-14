@@ -4,15 +4,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+var passport =  require('passport');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var ussdRouter = require('./routes/usssd');
 var adminRouter = require('./routes/admin');
 
-const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true";
-
-mongoose.connect(uri, {useNewUrlParser: true });
+// const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true";
+// mongoose.connect(uri, {useNewUrlParser: true });
 
 var app = express();
 
@@ -25,6 +27,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret:'mysecretpassword',
+  saveUninitialized: false,
+  resave: false
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
