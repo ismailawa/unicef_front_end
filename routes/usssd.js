@@ -233,8 +233,17 @@ menu.state('patientsSachets',{
     run: ()=> {
         menu.con('Number of sachets actually dispensed at  most recent visit:')
     },
+    defaultNext:'patientsMore'
+});
+
+menu.state('patientsMore',{
+    run: ()=> {
+        menu.con('Do you have additional entry?:' +
+            '\n1: Yes' +
+            '\n2: No')
+    },
     next:{
-        '1': 'outpatient'
+        '2':"outpatient"
     },
     defaultNext:'patientsWeight'
 });
