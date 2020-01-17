@@ -276,12 +276,12 @@ menu.state('discharged',{
             '\n0: NO')
     },
     next:{
-        '1':'yes',
+        '1':'moreChildEntry',
         '0':'no'
     }
 });
 
-menu.state('yes',{
+menu.state('no',{
     run: ()=> {
         menu.con('Was the child transferred to other facility before treatment completed?:' +
             '\n1: YES' +
