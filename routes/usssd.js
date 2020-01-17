@@ -271,8 +271,8 @@ menu.state('childDays',{
 
 menu.state('discharged',{
     run: ()=> {
-        menu.con('Was  the  child  successfully  discharged  as  cured/recovered from this facility?:+' +
-            '\n1: YES+' +
+        menu.con('Was  the  child  successfully  discharged  as  cured/recovered from this facility?:' +
+            '\n1: YES' +
             '\n0: NO')
     },
     next:{
@@ -283,16 +283,16 @@ menu.state('discharged',{
 
 menu.state('yes',{
     run: ()=> {
-        menu.con('Was the child transferred to other facility before treatment completed?:+' +
-            '\n1: YES+' +
+        menu.con('Was the child transferred to other facility before treatment completed?:' +
+            '\n1: YES' +
             '\n0: NO')
     },
     defaultNext: 'moreChildEntry'
 });
 menu.state('moreChildEntry',{
     run: ()=> {
-        menu.con('Do have additional entry for Out patients Log book?:+' +
-            '\n1: YES+' +
+        menu.con('Do have additional entry for Out patients Log book?:' +
+            '\n1: YES' +
             '\n2: NO')
     },
     next:{
