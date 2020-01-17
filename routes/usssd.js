@@ -10,10 +10,28 @@ let menu = new UssdMenu();
 
 menu.startState({
     run: ()=> {
-        menu.con('Welcome. Choose option:' +
-        '\nSelection type' +
-        '\n1. Nutrision' +
-        '\n2. Facility');
+        menu.con('Welcome Track it Application:' +
+        '\nSelection option' +
+        '\n1. Continue' +
+        '\n2. exit');
+    },
+    next: {
+        '1': 'continue',
+        '2': 'exit'
+    }
+});
+menu.state('exit', {
+    run: ()=> {
+        menu.end("Thank for using track it.")
+    },
+});
+
+menu.state('continue', {
+    run: ()=> {
+        menu.con('Choose option:' +
+            '\nSelection type' +
+            '\n1. Nutrition' +
+            '\n2. Facility');
     },
     next: {
         '1': 'nutrition',
@@ -35,7 +53,7 @@ menu.state('nutrition', {
 
 menu.state('findlgas',{
     run: async()=>{
-        var mess = 'Select LGA:'
+        let mess = 'Select LGA:';
        const selected =  parseInt(menu.val);
        const state = await State.find();
        const stateId = state[selected-1]._id;
@@ -59,7 +77,7 @@ menu.state('findlgas',{
 
 menu.state('findfacility',{
     run: async()=>{
-       var mess = 'Select facility:'
+       let mess = 'Select facility:';
        const selected =  parseInt(menu.val);
        const lga = await LGA.find();
        const lgaId = lga[selected-1]._id;
@@ -156,11 +174,6 @@ menu.state('finish',{
     } 
 });
 
-menu.state('exit',{
-    run: ()=> {
-        menu.end("Have a nice day");
-    },
-});
 
 //#################################################################################
 menu.state('IFS',{
@@ -537,7 +550,7 @@ menu.state('HQ',{
     next:{
     }
 });
-
+//##################################################################################################
 menu.state('CI',{
     run: ()=> {
     },
