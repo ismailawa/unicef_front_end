@@ -396,11 +396,141 @@ menu.state('register2',{
 
 menu.state('SCQ',{
     run: ()=> {
+        menu.con('Cartons and products are in good condition (not crushed, perforated, stained, or otherwise visibly damaged)?:' +
+        '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
     },
-    next:{
-    }
+    defaultNext:"rodents"
 });
 
+menu.state('rodents',{
+    run: ()=> {
+        menu.con('There is no evidence of rodents or insects in the storage area. (Visually inspect the storage area for evidence of rodents [droppings] or insects that can damage or contaminate the products.)?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"well-lit"
+});
+menu.state('well-lit',{
+    run: ()=> {
+        menu.con('RUTFs are stored in a dry, well-lit, well-ventilated storeroom. (Visually inspect roof, walls, and floor of storeroom.)?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"sunlight"
+});
+
+menu.state('sunlight',{
+    run: ()=> {
+        menu.con('Cartons and products are protected from direct sunlight ?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"water"
+});
+
+menu.state('water',{
+    run: ()=> {
+        menu.con('Storage area is dry and free of water penetration?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"insecticides"
+});
+menu.state('insecticides',{
+    run: ()=> {
+        menu.con('Commodities stored away from insecticides, chemicals, hazardous materials, old files, office supplies, and equipment?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"floor"
+});
+
+menu.state('floor',{
+    run: ()=> {
+        menu.con('Cartons stored on shelves or pallets, off the floor?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"commodities"
+});
+
+menu.state('commodities',{
+    run: ()=> {
+        menu.con('Expired, damaged or other unusable commodities stored away from usable commodities?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"fefo"
+});
+
+menu.state('fefo',{
+    run: ()=> {
+        menu.con('RUTF are stored and organized to enable FEFO (First-toexpire, firstout) procedures and are accessible for counting and general stock management?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"stacked"
+});
+
+menu.state('stacked',{
+    run: ()=> {
+        menu.con('Products are stacked at least 30 cm away from the walls and other rows or stacks of products (to prevent contact with outer walls and allow access to products) and stacked not more than 2.5 meters high?:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"arranged"
+});
+
+menu.state('arranged',{
+    run: ()=> {
+        menu.con('RUTF are arranged on shelves with identification labels, expiry dates, and manufacturing dates clearly visible.:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"temperature"
+});
+
+menu.state('temperature',{
+    run: ()=> {
+        menu.con('Nutritional products are stored within the appropriate temperature range (less than 40 degrees Centigrade) on the day of the visit:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"accessible"
+});
+menu.state('accessible',{
+    run: ()=> {
+        menu.con('Storage area is secured with a lock and key, but is accessible during normal working hours. Access is limited to authorized personnel:' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"fire"
+});
+
+menu.state('fire',{
+    run: ()=> {
+        menu.con('Fire safety equipment is available and accessible. (Any item identified as being used to promote fire safety should be considered.):' +
+            '\n1: Yes' +
+            '\n0: No' +
+            '\n0: N/A')
+    },
+    defaultNext:"finish"
+});
+//##################################################################################################
 menu.state('HQ',{
     run: ()=> {
     },
