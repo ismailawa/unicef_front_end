@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 
 const UssdMenu = require('ussd-menu-builder');
@@ -16,14 +16,14 @@ menu.startState({
         '\n2. Facility');
     },
     next: {
-        '1': 'nutrision',
+        '1': 'nutrition',
         '2': 'facility'
     }
 });
 
-menu.state('nutrision', {
+menu.state('nutrition', {
     run: async() => {
-        var mess = 'Select state:'
+        let mess = 'Select state:'
         const result = await State.find();
         result.forEach((r, index)=>{
            mess += `\n${index+1}. ${r.name}`
@@ -31,7 +31,7 @@ menu.state('nutrision', {
         menu.con(mess);
     },
     defaultNext: 'findlgas'
-})
+});
 
 menu.state('findlgas',{
     run: async()=>{
@@ -42,7 +42,7 @@ menu.state('findlgas',{
        LGA.find()
        .exec()
        .then((result)=>{
-        if(result.length == 0){
+        if(result.length === 0){
             menu.end("No Local Government Found..")
         }else{
          result.forEach((r, index)=>{
@@ -66,7 +66,7 @@ menu.state('findfacility',{
        Facility.find()
        .exec()
        .then((result)=>{
-        if(result.length == 0){
+        if(result.length === 0){
             menu.end("No Facility  Found..")
         }else{
          result.forEach((r, index)=>{
@@ -178,7 +178,7 @@ menu.state('IFS',{
 menu.state('dosageguidelines',{
     run: ()=> {
         menu.con('Can you describe the national dosage guidelines for me? How much should you FS02 prescribe for [band 1], [band 2], [band 3]? :' +
-        '\nEnter the respective answers seperated by comma' 
+        '\nEnter the respective answers separated by comma'
         )
     },
     defaultNext:'exchanging'
@@ -213,6 +213,83 @@ menu.state('dist-others',{
         menu.con('Enter distribution frequency:')
     },
     defaultNext:'patients'
+});
+
+menu.state('patients',{
+    run: ()=> {
+        menu.con('How many current patient\'s charts are you able to review at this facility today? :')
+    },
+    defaultNext:'patientsWeight'
+});
+
+menu.state('patientsWeight',{
+    run: ()=> {
+        menu.con('What was the child\'s weight as of the most recent entry on their chart?:')
+    },
+    defaultNext:'patientsSachets'
+});
+
+menu.state('patientsSachets',{
+    run: ()=> {
+        menu.con('Number of sachets actually dispensed at  most recent visit:')
+    },
+    next:{
+        '1': 'outpatient'
+    },
+    defaultNext:'patientsWeight'
+});
+
+menu.state('outpatient',{
+    run: ()=> {
+        menu.con('How many patient\'s entries that completed treatment in the past three months are you  FS07 able to review today? (up to 20):')
+    },
+    defaultNext:'childWeight'
+});
+
+menu.state('childWeight',{
+    run: ()=> {
+        menu.con('What was the child\'s weight  on admission, in kilogram s?:')
+    },
+    defaultNext:'childDays'
+});
+
+menu.state('childDays',{
+    run: ()=> {
+        menu.con('How many days was the child in treatment at this facility?:')
+    },
+    defaultNext:'discharged'
+});
+
+menu.state('discharged',{
+    run: ()=> {
+        menu.con('Was  the  child  successfully  discharged  as  cured/recovered from this facility?:+' +
+            '\n1: YES+' +
+            '\n0: NO')
+    },
+    next:{
+        '1':'yes',
+        '0':'no'
+    }
+});
+
+menu.state('yes',{
+    run: ()=> {
+        menu.con('Was the child transferred to other facility before treatment completed?:+' +
+            '\n1: YES+' +
+            '\n0: NO')
+    },
+    defaultNext: 'moreChildEntry'
+});
+menu.state('moreChildEntry',{
+    run: ()=> {
+        menu.con('Do have additional entry for Out patients Log book?:+' +
+            '\n1: YES+' +
+            '\n2: NO')
+    },
+    next:{
+        '1': 'childWeight',
+        '2': 'finish'
+    }
 });
 
 //#################################################################################
