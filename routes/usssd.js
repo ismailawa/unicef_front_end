@@ -304,10 +304,95 @@ menu.state('moreChildEntry',{
 //#################################################################################
 menu.state('SSQ',{
     run: ()=> {
+        menu.con('What is the physical count of usable (undamaged, unexpired) RUTF sachets today?:')
     },
-    next:{
-    }
+    defaultNext:"usableRutf"
 });
+menu.state('usableRutf',{
+    run: ()=> {
+        menu.con('Is  there  usable  RUTF  in  stock  today?:' +
+            '\n1: Yes' +
+            '\n0: No')
+    },
+    defaultNext:"expired"
+});
+
+menu.state('expired',{
+    run: ()=> {
+        menu.con('Is there any RUTF at this facility that is expired as of today\'s visit?:' +
+            '\n1: Yes' +
+            '\n0: No')
+    },
+    defaultNext:"unusable"
+});
+
+menu.state('unusable',{
+    run: ()=> {
+        menu.con('Is there any RUTF at this facility that is damaged as of today\'s visit? (sachet ripped, perforated, opened, nibbled by pests, or otherwise damaged so as to be unusable):' +
+            '\n1: Yes' +
+            '\n0: No')
+    },
+    defaultNext:"unusable-count"
+});
+
+menu.state('unusable-count',{
+    run: ()=> {
+        menu.con('What is the physical count of unusable (damaged or expired) RUTF sachets today?:')
+    },
+    defaultNext:"stock-card"
+});
+
+menu.state('stock-card',{
+    run: ()=> {
+        menu.con('Is there a stock card or stock ledger for RUTF?:' +
+            '\n1: Yes' +
+            '\n0: No')
+    },
+    defaultNext:"stock-card1"
+});
+
+menu.state('stock-card1',{
+    run: ()=> {
+        menu.con('Does the stock card or stock ledger have complete records for the past 3 months?:' +
+            '\n1: Yes' +
+            '\n0: No')
+    },
+    defaultNext:"stock-out"
+});
+
+menu.state('stock-out',{
+    run: ()=> {
+        menu.con('According to the stock card or stock ledger how many days in the last three months has RUTF been stocked out?:')
+    },
+    defaultNext:"register"
+});
+
+menu.state('register',{
+    run: ()=> {
+        menu.con('Is there a register or tally that records how many sachets of RUTF were dispensed to patients/caregivers? Can you show it to me?:' +
+            '\n1: Yes, shown' +
+            '\n0: Yes,  not  shown' +
+            '\n0: No')
+    },
+    defaultNext:"register1"
+});
+
+menu.state('register1',{
+    run: ()=> {
+        menu.con('If there is a register or tally card, does it contain complete records of RUTF distributed to patients/caregivers for the most recent three months?    If there is no register or tally card, does the stock card or stock ledger contain complete records of RUTF removed from stock or distributed to patients/caregivers for the most recent three months?:' +
+            '\n1: Yes' +
+            '\n0: No')
+    },
+    defaultNext:"register2"
+});
+menu.state('register2',{
+    run: ()=> {
+        menu.con('According to the tally, what quantity of RUTF was dispensed to patients/caregivers from this site during the most recent three months?:')
+    },
+    defaultNext:"finish"
+});
+
+//############################################################################
 
 menu.state('SCQ',{
     run: ()=> {
