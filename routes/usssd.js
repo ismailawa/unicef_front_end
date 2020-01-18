@@ -546,17 +546,152 @@ menu.state('fire',{
 //##################################################################################################
 menu.state('HQ',{
     run: ()=> {
+        menu.con('Enter village name:')
     },
-    next:{
-    }
+    defaultNext:"collector",
 });
+
+menu.state('collector',{
+    run: ()=> {
+        menu.con('Enter data collector\'s name:')
+    },
+    defaultNext:"child",
+});
+
+menu.state('child',{
+    run: ()=> {
+        menu.con('Enter data child\'s name:')
+    },
+    defaultNext:"prescribed",
+});
+
+menu.state('prescribed',{
+    run: ()=> {
+        menu.con('Prescribed daily dose per health facility records :')
+    },
+    defaultNext:"finish",
+});
+
 //##################################################################################################
 menu.state('CI',{
     run: ()=> {
+        menu.con('Do you recognize the sachet of [RUTF name, i.e. plumpy nut]? [Show sample sachet]:' +
+            '\n1. Yes' +
+            '\n0. No')
+    },
+    defaultNext:"identify",
+});
+
+menu.state('identify',{
+    run: ()=> {
+        menu.con('Do you know what this is for?')
+    },
+    defaultNext:"plumpy",
+});
+menu.state('plumpy',{
+    run: ()=> {
+        menu.con('When was the last time you went to collect plumpy nut for child [NAME]?')
+    },
+    defaultNext:"ration",
+});
+
+menu.state('ration',{
+    run: ()=> {
+        menu.con('When you last went to collect plumpy nut, were you able to receive child  [NAME] ration?' +
+            '\n1. Yes' +
+            '\n0. No')
+    },
+    defaultNext:"no-ration",
+});
+
+menu.state('no-ration',{
+    run: ()=> {
+        menu.con(' Clinic did not have any nut at the clinic during that period?' +
+            '\n1. Yes' +
+            '\n0. No')
     },
     next:{
-    }
+        '1': "number"
+    },
+    defaultNext:"no-ration1",
 });
+
+menu.state('no-ration1',{
+    run: ()=> {
+        menu.con('There were no staff that could provide it ?' +
+            '\n1. Yes' +
+            '\n0. No')
+    },
+    defaultNext:"number",
+});
+
+menu.state('number',{
+    run: ()=> {
+        menu.con('How many sachets did the child [NAME] eat yesterday?')
+    },
+    defaultNext:"finish-ration",
+});
+
+menu.state('finish-ration',{
+    run: ()=> {
+        menu.con('Was the child [NAME] able to finish his or her complete daily ration yesterday? ' +
+            '\n1. Yes' +
+            '\n0. No')
+    },
+    defaultNext:"dose-per-day",
+});
+
+menu.state('dose-per-day',{
+    run: ()=> {
+        menu.con('Were you told by the health worker how many sachets of this plumpy nut that the child [NAME] should eat per day?' +
+            '\n1. Yes' +
+            '\n0. No')
+    },
+    next:{
+      '1':'how-many'
+    },
+    defaultNext:"next-schedule",
+});
+
+menu.state('how-many',{
+    run: ()=> {
+        menu.con(' How many Sachets per Sachets day?')
+    },
+    defaultNext:"next-schedule",
+});
+
+menu.state('next-schedule',{
+    run: ()=> {
+        menu.con('How many days from now is the next scheduled distribution Days when you expect to receive more plumpy nut?')
+    },
+    defaultNext:"plumpy-in-house",
+});
+
+menu.state('plumpy-in-house',{
+    run: ()=> {
+        menu.con('How many sachets of plumpy nut do you have in the house today? (ask to see the sachets and count them)')
+    },
+    defaultNext:"refuses",
+});
+
+menu.state('refuses',{
+    run: ()=> {
+        menu.con('Were you told by the health worker to return to the clinic if  the child [NAME] refuses to eat the plumpy nut or becomes ill? ' +
+            '\n1. Yes' +
+            '\n0. No')
+    },
+    defaultNext:"other-person",
+});
+
+menu.state('other-person',{
+    run: ()=> {
+        menu.con('Has anyone other than the child [NAME] eaten the plumpy nut for the child [NAME]?' +
+            '\n1. Yes' +
+            '\n0. No')
+    },
+    defaultNext:"finish",
+});
+
 
 router.post('/',(req,res,next)=>{
     menu.run(req.body, ussdResult => {
