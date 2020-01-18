@@ -10,7 +10,7 @@ let menu = new UssdMenu();
 
 menu.startState({
     run: ()=> {
-        menu.con('Welcome Track it Application:' +
+        menu.con('Welcome to Track it Application:' +
         '\nSelection option' +
         '\n1. Continue' +
         '\n2. exit');
@@ -31,12 +31,18 @@ menu.state('continue', {
         menu.con('Choose option:' +
             '\nSelection type' +
             '\n1. Nutrition' +
-            '\n2. Facility');
+            '\n2. Others');
     },
     next: {
         '1': 'nutrition',
-        '2': 'facility'
+        '2': 'sorry'
     }
+});
+
+menu.state('sorry', {
+    run: ()=> {
+        menu.end("Sorry this menu is not yet implemented")
+    },
 });
 
 menu.state('nutrition', {
