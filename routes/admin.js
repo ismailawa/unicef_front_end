@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const mongoose = require('mongoose');
 const State = require('../ussd_app/models/state')
 const LGA = require('../ussd_app/models/local_area');
@@ -8,27 +8,36 @@ const User = require('../models/user');
 
 
 router.get('/', function (req, res, next) {
-     res.render('dashboard');
+     res.render('admin/dashboard');
 });
 
-router.get('/login', function (req, res, next) {
-     res.render('login');
-});
+
 
 router.get('/facilities', function (req, res, next) {
-     res.render('facilities');
+     res.render('admin/facilities');
 });
 
 router.get('/viewusers', function (req, res, next) {
-     res.render('viewusers');
+     res.render('admin/viewusers');
 });
 
 router.get('/createview',(req,res,next)=>{
-     res.render('create')
+     res.render('admin/create')
+});
+router.get('/state',(req,res,next)=>{
+    res.render('admin/viewState');
+});
+router.get('/lga',(req,res,next)=>{
+    res.render('admin/lgas');
 });
 
-router.post('/createUser',(req,res,next)=>{
-     var body = req.body,
+
+router.post('/state',(req,res,next)=>{
+    res.render('admin/viewState');
+});
+
+router.post('/admin/createUser',(req,res,next)=>{
+     let body = req.body,
      fullname = body.fullname,
      email = body.email,
      username = body.username,
@@ -57,5 +66,6 @@ router.post('/createUser',(req,res,next)=>{
           }
      })
 });
+
 
 module.exports = router;

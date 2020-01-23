@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+
+router.post('/login', (req, res, next)=> {
+  let username = req.body.username;
+  let password = req.body.password;
+  if(username.length)
+  console.log(`${username} and ${password}`);
+  res.render('login');
 });
 
 module.exports = router;

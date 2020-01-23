@@ -6,21 +6,24 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var passport =  require('passport');
+var engine = require('ejs-layout');
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var ussdRouter = require('./routes/usssd');
 var adminRouter = require('./routes/admin');
-
-const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true";
-mongoose.connect(uri, {useNewUrlParser: true });
+const Auth = require('./auth/admin_auth');
+//
+// const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true";
+// mongoose.connect(uri, {useNewUrlParser: true });
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.engine('ejs',engine.__express);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -31,12 +34,12 @@ app.use(session({
   secret:'mysecretpassword',
   saveUninitialized: false,
   resave: false
-}))
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ussd', ussdRouter);
-app.use('/admin',adminRouter);
+app.use('/admin',Auth.admin_auth,adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

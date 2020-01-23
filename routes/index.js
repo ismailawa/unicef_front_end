@@ -10,10 +10,8 @@ const Facility = require('../ussd_app/models/facility');
 router.get('/', function (req, res, next) {
     res.render('index');
 });
-
-router.get('/dashboard', function (req, res, next) {
-        res.render('dashboard');
+router.get('/login', function (req, res, next) {
+    res.render('login');
 });
-
 
 module.exports = router;

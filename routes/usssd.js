@@ -8,6 +8,8 @@ const Facility = require('../ussd_app/models/facility');
 const LGA = require('../ussd_app/models/local_area');
 let menu = new UssdMenu();
 
+
+
 menu.startState({
     run: ()=> {
         menu.con('Welcome to Track it Application:' +
@@ -47,12 +49,16 @@ menu.state('sorry', {
 
 menu.state('nutrition', {
     run: async() => {
-        let mess = 'Select state:'
+        let mess = 'Select state:';
         const result = await State.find();
         result.forEach((r, index)=>{
            mess += `\n${index+1}. ${r.name}`
-        }); 
-        menu.con(mess);
+        });
+        let sel = parseInt(menu.val);
+        menu.session.set('state', result[sel-1].code)
+            .then(()=>{
+                menu.con(mess);
+            })
     },
     defaultNext: 'findlgas'
 });
@@ -700,6 +706,25 @@ menu.state('other-person',{
 
 
 router.post('/',(req,res,next)=>{
+    menu.sessionConfig({
+        start:(sessionId, callback)=>{
+            if(!(sessionId in req.session)) req.session[sessionId] = {};
+            callback();
+        },
+        end:(sessionId, callback)=>{
+            req.session.clear();
+            delete req.session[sessionId];
+            callback();
+        },
+        set:(sessionId, key, value, callback)=>{
+            req.session[sessionId][key] = value;
+            callback();
+        },
+        get:(sessionId, key, callback)=>{
+            let value = req.session[sessionId][key];
+            callback(null, value);
+        }
+    });
     menu.run(req.body, ussdResult => {
         res.send(ussdResult);
     });

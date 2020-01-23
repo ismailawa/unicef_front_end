@@ -1,15 +1,19 @@
 <component name="ProjectDictionaryState">
   <dictionary name="ISMAILAWA">
     <words>
+      <w>createview</w>
       <w>dosageguidelines</w>
       <w>facops</w>
       <w>fefo</w>
       <w>findfacility</w>
       <w>findlgas</w>
+      <w>fullname</w>
       <w>plumpy</w>
       <w>questionaire</w>
       <w>rutf</w>
+      <w>signup</w>
       <w>ussd</w>
+      <w>viewusers</w>
     </words>
   </dictionary>
 </component>
