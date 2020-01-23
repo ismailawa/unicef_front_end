@@ -1,18 +1,18 @@
-var createError = require('http-errors');
-var mongoose = require('mongoose');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
-var passport =  require('passport');
-var engine = require('ejs-layout');
+const createError = require('http-errors');
+const mongoose = require('mongoose');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const passport =  require('passport');
+const engine = require('ejs-layout');
+const flash = require('connect-flash');
 
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var ussdRouter = require('./routes/usssd');
-var adminRouter = require('./routes/admin');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const ussdRouter = require('./routes/usssd');
+const adminRouter = require('./routes/admin');
 const Auth = require('./auth/admin_auth');
 
 const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true";
@@ -36,9 +36,16 @@ app.use(session({
   resave: false
 }));
 
+app.use(flash());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ussd', ussdRouter);
+app.use((req,res,next)=>{
+    res.locals.isAuthenticated = req.session.isAuthenticated;
+    res.locals.user = req.session.user;
+    next();
+});
+
 app.use('/admin',Auth.admin_auth,adminRouter);
 
 // catch 404 and forward to error handler
