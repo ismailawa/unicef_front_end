@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 const bcrytp = require('bcrypt-nodejs');
 
 const UserSchema = mongoose.Schema({
-    fullname:{
+    firstName:{
         type:String
+    },
+    lastName:{
+      type:String
     },
     email:{
         type:String,
@@ -16,15 +19,10 @@ const UserSchema = mongoose.Schema({
     password:{
         type:String,
         required:true
-    } 
+    },
+    userType:{
+        type:String
+    }
 });
-
-UserSchema.methods.hashPassword = (password)=>{
-    return bcrytp.hashSync(password,bcrytp.genSalt(10))
-}
-
-UserSchema.methods.comparePassword = (password, hash)=>{
-    return bcrytp.compareSync(password,hash);
-}
 
 module.exports = mongoose.model("User", UserSchema,'users');
