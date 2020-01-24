@@ -2,23 +2,43 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title align-center" id="exampleModalLabel">ADD STATE FORM</h5>
+                <h5 class="modal-title align-center" id="exampleModalLabel">ADD USER FORM</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <form>
+                    <form method="post" action="/admin/createUser">
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" id="stateName" aria-describedby="emailHelp" placeholder="Enter State Name">
+                            <input type="text" class="form-control form-control-user" name="firstName" id="FirstName" aria-describedby="emailHelp" placeholder="First Name">
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control form-control-user" id="stateCode" placeholder="State Code">
+                            <input type="text" class="form-control form-control-user" name="lastName" id="LastName" placeholder="Last Name">
                         </div>
-                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                            ADD STATE
-                        </a>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user" name="email" id="Email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user" name="username" id="Username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user"  name="phone" id="Phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control form-control-user"  name="role" id="Role">
+                                <option selected>Select Role</option>
+                                <% roles.forEach(role=>{%>
+                                    <option value="<%= role.role_id %>"><%= role.title %></option>
+                                <%})%>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control form-control-user"  name="password" id="password" placeholder="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                            Create User
+                        </button>
                     </form>
                 </div>
             </div>

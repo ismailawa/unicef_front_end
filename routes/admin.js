@@ -5,6 +5,7 @@ const State = require('../ussd_app/models/state')
 const LGA = require('../ussd_app/models/local_area');
 const Facility = require('../ussd_app/models/facility');
 const User = require('../models/user');
+const Role = require('../models/role');
 
 
 router.get('/', function (req, res, next) {
@@ -17,8 +18,40 @@ router.get('/facilities', function (req, res, next) {
      res.render('admin/facilities');
 });
 
-router.get('/viewusers', function (req, res, next) {
-     res.render('admin/viewusers');
+router.get('/users', function (req, res, next) {
+        User.find()
+            .exec()
+            .then(users=>{
+                Role.find()
+                    .exec()
+                    .then(roles=>{
+                        return res.render('admin/viewusers',{users:users, roles:roles});
+                    })
+            })
+            .catch(error=>{
+                return res.send(error);
+            })
+});
+
+router.post('/createUser',async (req,res,next)=>{
+    let firstName = req.body.firstName;
+    let lastName = req.body.lastName;
+    let email = req.body.email;
+    let username = req.body.username;
+    let phone = req.body.phone;
+    let role = req.body.role;
+    let password = req.body.password;
+    const user = new User({
+        firstName:firstName,
+        lastName:lastName,
+        email:email,
+        username:username,
+        phone:phone,
+        role:role,
+        password:password
+    });
+    const newuser = await user.save();
+    return res.redirect('/admin/users');
 });
 
 router.get('/createview',(req,res,next)=>{
