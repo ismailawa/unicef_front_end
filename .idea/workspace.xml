@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fba84af-0be5-4c6f-865c-ceb616170003" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/models/role.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/add_user_partial.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/add_user_partial.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/sidebar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/sidebar.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/viewusers.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/viewusers.ejs" afterDir="false" />
-    </list>
+    <list default="true" id="0fba84af-0be5-4c6f-865c-ceb616170003" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -69,7 +61,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
+            <state relative-caret-position="-110">
               <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
             </state>
           </provider>
@@ -268,16 +260,15 @@
       <workItem from="1579255522651" duration="28591000" />
       <workItem from="1579703012270" duration="1261000" />
       <workItem from="1579772198314" duration="9002000" />
-      <workItem from="1579796381418" duration="16452000" />
+      <workItem from="1579796381418" duration="17170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55306000" />
+    <option name="totallyTimeSpent" value="56024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2375189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -505,7 +496,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
+        <state relative-caret-position="-110">
           <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
         </state>
       </provider>
