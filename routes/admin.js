@@ -51,6 +51,7 @@ router.post('/createUser',async (req,res,next)=>{
         password:password
     });
     const newuser = await user.save();
+
     return res.redirect('/admin/users');
 });
 

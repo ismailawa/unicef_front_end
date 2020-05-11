@@ -100,7 +100,7 @@ menu.state('findfacility',{
             menu.end("No Facility  Found..")
         }else{
          result.forEach((r, index)=>{
-             mess += `\n${index+1}. ${r.name}`
+             mess += `\n${index+1}. ${r.modelName}`
          });
          menu.con(mess)
         }

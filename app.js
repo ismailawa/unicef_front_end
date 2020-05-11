@@ -18,7 +18,7 @@ const Auth = require('./auth/admin_auth');
 const uri = "mongodb+srv://unicef_user:password654321@cluster0-8id7m.mongodb.net/unicefdatabase?retryWrites=true";
 mongoose.connect(uri, {useNewUrlParser: true });
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,6 +40,7 @@ app.use(flash());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ussd', ussdRouter);
+
 app.use((req,res,next)=>{
     res.locals.isAuthenticated = req.session.isAuthenticated;
     res.locals.user = req.session.user;
